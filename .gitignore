@@ -1,0 +1,47 @@
+# --- PyCharm ---
+.idea/
+*.iml
+
+# --- Virtual Environments ---
+venv/
+venv*/
+.env/
+.env*/
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.pklz
+*.log
+
+# --- Scrapy ---
+.scrapy/
+
+# --- Output files ---
+results.jl
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+
+# --- Env files / secrets ---
+*.env
+*.key
+*.pem
+*.crt
+
+# --- pytest ---
+.cache/
+.pytest_cache/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Coverage ---
+.coverage
+coverage.xml
+htmlcov/
