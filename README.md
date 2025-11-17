@@ -80,6 +80,6 @@ O spider retorna um objeto JSON no seguinte formato:
 ---
 
 
- ⚠️ IMPORTANTE: Todos os dados são no README.md são totalmente fictícios e servem apenas como exemplo técnico.
+ ⚠️ IMPORTANTE: Todos os dados no README.md são totalmente fictícios e servem apenas como exemplo técnico.
 
 ---
