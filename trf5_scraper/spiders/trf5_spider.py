@@ -150,23 +150,37 @@ class TRF5Spider(scrapy.Spider):
 
     def extract_envolvidos(self, response):
         """
-        Extrai todos os envolvidos do processo (APTE, APDO, Advogado/Procurador...).
+        Extrai todos os envolvidos do processo.
 
         :param response: HTML contendo os dados do processo.
-        :return: Lista de dicionários contendo papel e nome dos envolvidos.
+        :return: Lista de dicionários com 'papel' e 'nome' dos envolvidos.
         """
         envolvidos = []
-        rows = response.xpath(
-            "//table[.//td[contains(text(),'APTE') or "
-            "contains(text(),'APDO') or "
-            "contains(text(),'Advogado')]]//tr"
-        )
+
+        # Seleciona a terceira tabela da página
+        table = response.xpath("(//table)[3]")
+
+        if not table:
+            return envolvidos  # Tabela não encontrada
+
+        # Pega todas as linhas da tabela
+        rows = table.xpath(".//tr")
 
         for tr in rows:
-            papel = tr.xpath("normalize-space(./td[1]/text())").get(default="")
+            # Extrai o papel (primeira coluna)
+            papel = tr.xpath("normalize-space(./td[1]//text())").get(default="")
+
+            # Extrai o nome (segunda coluna)
             nome = tr.xpath("normalize-space(./td[2]//b/text())").get(default="")
 
-            if papel and "RELATOR" not in papel.upper() and nome:
+            # Ignorar RELATOR
+            if "RELATOR" in papel.upper():
+                continue
+
+            if papel and nome:
+                papel = clean_text(papel)
+                nome = clean_text(nome)
+
                 envolvidos.append({"papel": papel, "nome": nome})
 
         return envolvidos

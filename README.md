@@ -58,18 +58,6 @@ scrapy crawl trf5 -a numero_processo=0015648-78.1999.4.05.0000 -O saida.json
 
 ---
 
-## 🧰 Utilização do arquivo utils.py
-
-Funções utilitárias usadas em todo o scraper:
-
-* `extract_regex()` — extrai dados via regex
-* `clean_text()` — normaliza e limpa textos
-* `xpath_text()` — extrai texto de um único XPath
-* `xpath_texts_join()` — extrai múltiplos textos e concatena
-
-Isso melhora a legibilidade (**Clean Code**) e evita duplicações (**DRY**).
-
----
 
 ## 📝 Estrutura do item retornado
 
@@ -77,51 +65,25 @@ O spider retorna um objeto JSON no seguinte formato:
 
 ```json
 {
-  "numero_processo": "0015648-78.1999.4.05.0000",
-  "numero_legado": "99.05.15648-8",
-  "data_autuacao": "15/04/1999",
-  "relator": "DESEMBARGADOR FEDERAL ...",
+  "numero_processo": "1234567-89.2024.4.05.9999",
+  "numero_legado": "24.99.123456-7",
+  "data_autuacao": "10/02/2024",
+  "relator": "DESEMBARGADOR FEDERAL JOÃO SILVA",
   "envolvidos": [
-    {"papel": "APTE", "nome": "FULANO"},
-    {"papel": "APDO", "nome": "BELTRANO"}
+    { "papel": "APTE", "nome": "CARLOS ALMEIDA" },
+    { "papel": "APDO", "nome": "MARIA FERNANDA" },
+    { "papel": "Advogado", "nome": "DR. RICARDO MENDES" }
   ],
   "movimentacoes": [
-    {"data": "01/01/2000", "texto": "Movimentação X"}
+    { "data": "20/02/2024", "texto": "Distribuição automática realizada." },
+    { "data": "25/02/2024", "texto": "Concluso para despacho." },
+    { "data": "01/03/2024", "texto": "Despacho proferido pelo relator." }
   ]
 }
+
 ```
 
----
+ ⚠️ IMPORTANTE: Estes dados são totalmente fictícios e servem apenas como exemplo técnico.
 
-## 🧪 Testes
-
-Você pode criar testes com **pytest** usando mocks para HTML ou responses locais.
-Se quiser, posso gerar uma suíte de testes completa.
 
 ---
-
-## 🔧 Princípios aplicados
-
-* **SOLID**: Funções com responsabilidade única (Single Responsibility).
-* **DRY**: Utilização do `utils.py` para funções repetitivas.
-* **KISS**: XPath simples e claros.
-* **Clean Code**: Nomes descritivos, docstrings e modularização.
-
----
-
-## 📌 Melhorias futuras
-
-* Suporte a múltiplos processos em lote
-* Retry com backoff exponencial
-* Exportação para banco de dados
-* Criação de API Flask para consultar processos
-
----
-
-## 📄 Licença
-
-Este projeto é livre para uso pessoal e estudos.
-
----
-
-Se quiser, posso adicionar um **badge**, melhorar a documentação ou criar um **Makefile** para facilitar a execução.
