@@ -45,16 +45,10 @@ pip install -r requirements.txt
 ### 2. Execute o Scrapy passando o número do processo:
 
 ```bash
-scrapy crawl trf5 -a numero_processo=0015648-78.1999.4.05.0000
+scrapy crawl trf5 -a numero_processo=1234567-89.2024.4.05.9999
 ```
 
 O resultado será salvo no arquivo **results.jl** (JSON Lines).
-
-Se quiser sobrescrever:
-
-```bash
-scrapy crawl trf5 -a numero_processo=0015648-78.1999.4.05.0000 -O saida.json
-```
 
 ---
 
@@ -83,7 +77,9 @@ O spider retorna um objeto JSON no seguinte formato:
 
 ```
 
- ⚠️ IMPORTANTE: Estes dados são totalmente fictícios e servem apenas como exemplo técnico.
+---
 
+
+ ⚠️ IMPORTANTE: Todos os dados são no README.md são totalmente fictícios e servem apenas como exemplo técnico.
 
 ---
