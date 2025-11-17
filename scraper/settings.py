@@ -1,6 +1,6 @@
-BOT_NAME = "trf5_scraper"
-SPIDER_MODULES = ["trf5_scraper.spiders"]
-NEWSPIDER_MODULE = "trf5_scraper.spiders"
+BOT_NAME = "scraper"
+SPIDER_MODULES = ["scraper.spiders"]
+NEWSPIDER_MODULE = "scraper.spiders"
 
 ROBOTSTXT_OBEY = True
 CONCURRENT_REQUESTS = 8
@@ -12,7 +12,7 @@ DEFAULT_REQUEST_HEADERS = {
 }
 
 ITEM_PIPELINES = {
-    "trf5_scraper.pipelines.JsonLinesPipeline": 300,
+    "scraper.pipelines.JsonLinesPipeline": 300,
 }
 
 # encoding

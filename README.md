@@ -18,7 +18,7 @@ O scraper realiza requisições ao endpoint oficial do TRF5 e extrai:
 ```
 trf5_scraper/
 │
-├── trf5_scraper/
+├── scraper/
 │   ├── spiders/
 │   │   └── trf5_spider.py
 │   ├── items.py

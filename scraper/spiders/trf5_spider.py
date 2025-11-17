@@ -1,7 +1,7 @@
 import scrapy
 from scrapy.http import FormRequest
 
-from trf5_scraper.items import ProcessoItem
+from scraper.items import ProcessoItem
 
 from ..utils import clean_text, extract_regex, xpath_text, xpath_texts_join
 

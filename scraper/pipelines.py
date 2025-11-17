@@ -1,8 +1,5 @@
 import json
 import os
-from datetime import datetime
-
-from pymongo import MongoClient
 
 
 class JsonLinesPipeline:
